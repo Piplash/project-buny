@@ -7,7 +7,7 @@ var affection         : float = 0
 var affectionLevel    : int = 1
 var prevAffectionLevel: int = 1
 
-var decreasePerSecond : float = 0.05
+var decreasePerSecond : float = 0.1
 var decreaseAffection: bool = true
 
 var hunger : float = 0
@@ -15,7 +15,7 @@ var hungerLevel: String = 'Very hungry'
 var prevHungerLevel: String = 'Very hungry'
 
 var decreaseHunger: bool = true
-var decreaseHungerPerSecond: float = 0.01
+var decreaseHungerPerSecond: float = 0.2
 
 var levelChange : bool = true
 var hungerChange: bool = true
@@ -26,7 +26,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# Disminución del afecto. 0.5 cada 10 segundos > 0.5/10 = 0.05 (bajaPorSegundo)
-	print(hunger)
 	if decreaseAffection == true:
 		affection -= decreasePerSecond * delta 
 	
@@ -41,10 +40,10 @@ func _process(delta: float) -> void:
 			animationManagerScript.changeAnimation(affectionLevel)
 			prevAffectionLevel = affectionLevel
 
-	var eating = inputHandlerScript.getEating()
+	var animationOn = inputHandlerScript.getAnimationOn()
 
 	if hungerChange == true:
-		if !eating:
+		if !animationOn:
 			if prevHungerLevel != hungerLevel:
 				animationManagerScript.changeAnimation(affectionLevel)
 				prevHungerLevel = hungerLevel

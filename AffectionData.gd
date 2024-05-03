@@ -27,7 +27,9 @@ func _process(delta: float) -> void:
 	affectionPercentage = stats[0]
 	hungerPercentaje = stats[1]
 
+	
 	$Labels/AffectionLevel.text = "Level: " + str(res[0])
-	$Labels/AffectionPercentage.text = "Affection: " + affectionPercentage +"%"
+	$Labels/AffectionPercentage.text = "Affection: " #+ affectionPercentage +"%"
+	$Labels/ProgressBar.value = res[1]
 	$Labels/Mood.text = "Mood: " + res[2]
 	$Labels/Hunger.text = "Hunger: " + hunger

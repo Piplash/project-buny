@@ -17,7 +17,7 @@ var cursorOverModelArea  : bool = false
 var handPointer
 var arrowPointer
 
-var eating: bool = false
+var animationOn: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -86,8 +86,8 @@ func mouseLeftCarrot():
 	cursorOverCarrotArea = false
 
 func changeCursor(event):
-	eating = inputHandlerScript.getEating()
-	if !eating:
+	animationOn = inputHandlerScript.getAnimationOn()
+	if !animationOn:
 		if event == 'Entered':
 			Input.set_custom_mouse_cursor(handPointer)
 		elif event == 'Left':

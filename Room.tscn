@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bshcmoflw3ek1"]
+[gd_scene load_steps=16 format=3 uid="uid://bshcmoflw3ek1"]
 
 [ext_resource type="Script" path="res://AffectionData.gd" id="1_ed4pk"]
 [ext_resource type="Texture2D" uid="uid://bwffn0bq8y4kp" path="res://assets/background.jpg" id="2_5x8cf"]
+[ext_resource type="Script" path="res://ProgressBar.gd" id="3_mrnwi"]
 [ext_resource type="Script" path="res://InputHandler.gd" id="3_rv7bn"]
 [ext_resource type="Script" path="res://AnimationManager.gd" id="4_oly7i"]
 [ext_resource type="AudioStream" uid="uid://bjfcocqww4u3f" path="res://assets/upset.mp3" id="5_pnfwi"]
@@ -13,7 +14,7 @@
 viewport_path = NodePath("Character/Buny/GDCubismUserModel")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rjy1"]
-size = Vector2(8930, 5920)
+size = Vector2(8720, 5920)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w2t3s"]
 radius = 620.081
@@ -38,10 +39,10 @@ texture = ExtResource("2_5x8cf")
 expand_mode = 2
 
 [node name="LabelPanel" type="ColorRect" parent="."]
-offset_left = 32.0
-offset_top = 30.0
-offset_right = 238.0
-offset_bottom = 175.0
+offset_left = 10.0
+offset_top = 29.0
+offset_right = 256.0
+offset_bottom = 174.0
 color = Color(0.592157, 0.360784, 0.768627, 0.486275)
 
 [node name="Labels" type="Control" parent="."]
@@ -54,35 +55,43 @@ offset_bottom = 168.0
 
 [node name="AffectionLevel" type="Label" parent="Labels"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = -5.0
 offset_top = 10.0
-offset_right = 51.0
+offset_right = 36.0
 offset_bottom = 33.0
 text = "Level"
 
 [node name="AffectionPercentage" type="Label" parent="Labels"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = -5.0
 offset_top = 40.0
-offset_right = 81.0
+offset_right = 66.0
 offset_bottom = 63.0
 text = "Affection"
 
 [node name="Mood" type="Label" parent="Labels"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = -5.0
 offset_top = 70.0
-offset_right = 55.0
+offset_right = 40.0
 offset_bottom = 93.0
 text = "Mood"
 
 [node name="Hunger" type="Label" parent="Labels"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = -5.0
 offset_top = 100.0
-offset_right = 72.0
+offset_right = 57.0
 offset_bottom = 123.0
 text = "Hunger"
+
+[node name="ProgressBar" type="ProgressBar" parent="Labels"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 40.0
+offset_right = 211.0
+offset_bottom = 67.0
+script = ExtResource("3_mrnwi")
 
 [node name="Character" type="Node2D" parent="."]
 script = ExtResource("3_rv7bn")
@@ -100,42 +109,42 @@ anim_loop = true
 anim_loop_fade_in = true
 anim_expression = "sadcry"
 anim_motion = "Idle_1"
-ParamAngleX = -4.60105
-ParamAngleY = 10.63
-ParamEyeBallX = 0.988098
-ParamEyeBallY = -0.499963
+ParamAngleX = 0.0
+ParamAngleY = 0.0
+ParamEyeBallX = 0.0
+ParamEyeBallY = 0.0
 Eyes_mov = 0.260001
 ParamEyeLOpen = 1.0
-ParamMouthForm = -0.354301
-ParamMouthOpenY = 5.25583e-18
-bite_head_par = 0.291806
+ParamMouthForm = 0.0
+ParamMouthOpenY = 0.0
+bite_head_par = 0.0
 upset = 0.0
 sad = 0.627
 cry = 1.0
 happy = 0.0
 super_happy = 0.0
-loopcry1 = 0.757056
+loopcry1 = 0.112095
 loopcry2 = 0.0
 hand123 = 0.0
-hand = 0.965685
+hand = 0.5
 ArmUpset = 0.0
-ParamBreath = 0.256634
-torso_mov = 0.439541
+ParamBreath = 0.709009
+torso_mov = 0.523696
 body2 = 0.0
 main_arms = 0.0
 ParamBodyAngleX = 0.0
 amrsupset = 0.0
 ParamAngleZ = 0.0
 Carrot_opacity = 0.0
-Carrot_bites = 0.7
-armcarrotL = 0.400002
-CarrotY = 0.6
-happy_body = 0.631084
-notes1 = 0.400104
+Carrot_bites = 0.0
+armcarrotL = 0.0
+CarrotY = 0.0
+happy_body = 0.5
+notes1 = 0.5
 notes_opacity = 0.0
-ParamHairFront = 8.34465e-07
-ParamHairSide = -0.0425913
-ParamHairBack = -0.124937
+ParamHairFront = 0.0
+ParamHairSide = -0.286128
+ParamHairBack = -0.174
 ParamBrowLX = 0.0
 ParamBrowRX = 0.0
 ParamEyeLSmile = 0.0
@@ -180,7 +189,8 @@ render_target_update_mode = 4
 position = Vector2(2180, 2310)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/ModelArea"]
-position = Vector2(255, -770.001)
+position = Vector2(360, -770)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1rjy1")
 
 [node name="HeadArea" type="Area2D" parent="Character/Buny"]

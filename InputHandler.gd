@@ -13,13 +13,13 @@ var cursorOverModelArea  : bool = false
 
 var pointerHovering : bool = false
 var dragginCarrot   : bool = false
-var eatingCarrot	: bool = false
+var animationOn     : bool = false
 
 var startExpression : bool = true
 var stopExpression  : bool = true
 
-var patAffectionIncrease  : float = 0.05
-var chestAffectionDecrease: float = -3.0
+var patAffectionIncrease  : float = 0.12
+var chestAffectionDecrease: float = -5.0
 
 var carrotInitialPosition: Vector2
 var drag_offset          : Vector2
@@ -48,15 +48,15 @@ func _input(event):
 	followPointer(event)
 
 	if cursorOverHeadArea == true:
-		if !eatingCarrot:
+		if !animationOn:
 			toDoOnHeadArea(event, level)
 
 	if cursorOverChestArea == true:
-		if !eatingCarrot:
+		if !animationOn:
 			toDoOnChestArea(event)
 
 	if cursorOverCarrotArea == true:
-		if !eatingCarrot:
+		if !animationOn:
 			toDoOnCarrotArea(event)
 
 	toDoOnUnpressedClick(event)
@@ -89,12 +89,16 @@ func toDoOnHeadArea(event, level) -> void:
 				pointerHovering  = true
 				socialManagerScript.setLevelChange(false)
 
-				if level == 4:
-					patAffectionIncrease = 0.03
+				if level == 2:
+					patAffectionIncrease = 0.11
+				elif level ==3:
+					patAffectionIncrease = 0.09
+				elif level == 4:
+					patAffectionIncrease = 0.07
 				elif level == 5:
-					patAffectionIncrease = 0.015
+					patAffectionIncrease = 0.04
 				else:
-					patAffectionIncrease = 0.05
+					patAffectionIncrease = 0.12
 
 				socialManagerScript.setDecreaseAffection(false)
 				socialManagerScript.modifyAffection(patAffectionIncrease)
@@ -119,6 +123,9 @@ func toDoOnChestArea(event) -> void:
 			#print("ENTRANDO 2.1")
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 				#print("ENTRANDO 2.1.2")
+				animationOn = true
+				Input.set_custom_mouse_cursor(arrowPointer)
+				
 				socialManagerScript.setLevelChange(false)
 				socialManagerScript.modifyAffection(chestAffectionDecrease)
 				$Buny/GDCubismUserModel.stop_expression()
@@ -165,23 +172,22 @@ func toDoOnUnpressedClick(event) -> void:
 				var hunger = socialManagerScript.getHunger()
 				print("Logic to feed")
 				if level >= 4 and hunger != "Full":
-					eatingCarrot = true;
+					animationOn = true;
 					Input.set_custom_mouse_cursor(arrowPointer)
 					
 					$Buny/GDCubismUserModel.stop_expression()
 					$Buny/GDCubismUserModel.start_expression("carrot")
 					$Buny/GDCubismUserModel.start_motion("Idle",4,3)
 					defaultAnimation(4.5)
-					await get_tree().create_timer(4.5).timeout
-					eatingCarrot = false;
-					socialManagerScript.modifyHunger(5)
+					socialManagerScript.modifyHunger(15)
 				else:
 					if hunger == "Full":
 						print("Logic for when she is full")
 						return
 
 					if level < 4:
-						print("Logic for when is not happy")
+						animationOn = true;
+						Input.set_custom_mouse_cursor(arrowPointer)
 						$Buny/GDCubismUserModel.start_expression("upset")
 						defaultAnimation(2.0, "upset")
 						await get_tree().create_timer(0.7).timeout
@@ -190,6 +196,7 @@ func toDoOnUnpressedClick(event) -> void:
 
 func defaultAnimation(timer: float, originalAnimation = null) -> void:
 	await get_tree().create_timer(timer).timeout
+	animationOn = false
 	socialManagerScript.setLevelChange(true)
 	socialManagerScript.changeAnimation(originalAnimation)
 
@@ -197,5 +204,5 @@ func defaultAnimation(timer: float, originalAnimation = null) -> void:
 func getPatting() -> bool:
 	return pointerHovering
 
-func getEating() -> bool:
-	return eatingCarrot
+func getAnimationOn() -> bool:
+	return animationOn
