@@ -1,0 +1,19 @@
+Cambios Generales
+
+-Funcionalidades para comer
+
+Novedades
+
+-Se agregan zanahorias en esquina inf. izquierda
+-Se deben arrastrar hasta la cabeza de buny
+-Buny deja que la alimentan solo estando feliz o súper feliz (nivel 4 y 5)
+-Al comer, disminuye el hambre (aumenta el medidor)
+-Al no comer, aumenta el hambre (disminuye el medidor)
+
+Correcciones
+
+-No hay correcciones
+
+Problemas Conocidos
+
+-Problema de animación en los ojos

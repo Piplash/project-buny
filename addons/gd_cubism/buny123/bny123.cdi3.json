@@ -1,0 +1,356 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "ParamGroup",
+			"Name": "Angle X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "ParamGroup",
+			"Name": "Angle Y"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "ParamGroup",
+			"Name": "Eyeball X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "ParamGroup",
+			"Name": "Eyeball Y"
+		},
+		{
+			"Id": "Eyes_mov",
+			"GroupId": "ParamGroup",
+			"Name": "Eyes Mov"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "ParamGroup",
+			"Name": "EyeL Open"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "ParamGroup",
+			"Name": "Mouth Form"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "ParamGroup",
+			"Name": "Mouth Open"
+		},
+		{
+			"Id": "bite_head_par",
+			"GroupId": "ParamGroup",
+			"Name": "bite head mov"
+		},
+		{
+			"Id": "upset",
+			"GroupId": "ParamGroup2",
+			"Name": "upset"
+		},
+		{
+			"Id": "sad",
+			"GroupId": "ParamGroup2",
+			"Name": "sad"
+		},
+		{
+			"Id": "cry",
+			"GroupId": "ParamGroup2",
+			"Name": "cry"
+		},
+		{
+			"Id": "happy",
+			"GroupId": "ParamGroup2",
+			"Name": "happy"
+		},
+		{
+			"Id": "super_happy",
+			"GroupId": "ParamGroup2",
+			"Name": "super happy"
+		},
+		{
+			"Id": "loopcry1",
+			"GroupId": "ParamGroup2",
+			"Name": "loopcry1"
+		},
+		{
+			"Id": "loopcry2",
+			"GroupId": "ParamGroup2",
+			"Name": "loopcry2"
+		},
+		{
+			"Id": "hand123",
+			"GroupId": "ParamGroup2",
+			"Name": "hand123"
+		},
+		{
+			"Id": "hand",
+			"GroupId": "ParamGroup2",
+			"Name": "hand_mov"
+		},
+		{
+			"Id": "ArmUpset",
+			"GroupId": "ParamGroup2",
+			"Name": "AmrUpset"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "ParamGroup3",
+			"Name": "Breath"
+		},
+		{
+			"Id": "torso_mov",
+			"GroupId": "ParamGroup3",
+			"Name": "torso_mov"
+		},
+		{
+			"Id": "body2",
+			"GroupId": "ParamGroup3",
+			"Name": "cuerpo2(carrot/upset)"
+		},
+		{
+			"Id": "main_arms",
+			"GroupId": "ParamGroup3",
+			"Name": "mainarms"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "ParamGroup3",
+			"Name": "Body X"
+		},
+		{
+			"Id": "amrsupset",
+			"GroupId": "ParamGroup3",
+			"Name": "armsupset"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "",
+			"Name": "Angle Z"
+		},
+		{
+			"Id": "Carrot_opacity",
+			"GroupId": "ParamGroup5",
+			"Name": "carrot opacity"
+		},
+		{
+			"Id": "Carrot_bites",
+			"GroupId": "ParamGroup5",
+			"Name": "Carrotbites"
+		},
+		{
+			"Id": "armcarrotL",
+			"GroupId": "ParamGroup5",
+			"Name": "armcarrotL"
+		},
+		{
+			"Id": "CarrotY",
+			"GroupId": "ParamGroup5",
+			"Name": "carrotY"
+		},
+		{
+			"Id": "happy_body",
+			"GroupId": "",
+			"Name": "happy body"
+		},
+		{
+			"Id": "notes1",
+			"GroupId": "",
+			"Name": "notes1"
+		},
+		{
+			"Id": "notes_opacity",
+			"GroupId": "",
+			"Name": "notes opacity"
+		},
+		{
+			"Id": "ParamHairFront",
+			"GroupId": "ParamGroup4",
+			"Name": "Hair Move Front"
+		},
+		{
+			"Id": "ParamHairSide",
+			"GroupId": "ParamGroup4",
+			"Name": "Hair Move Side"
+		},
+		{
+			"Id": "ParamHairBack",
+			"GroupId": "ParamGroup4",
+			"Name": "Hair Move Back"
+		},
+		{
+			"Id": "ParamBrowLX",
+			"GroupId": "",
+			"Name": "BrowL X"
+		},
+		{
+			"Id": "ParamBrowRX",
+			"GroupId": "",
+			"Name": "BrowR X"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "",
+			"Name": "EyeL Smile"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "",
+			"Name": "Body Y"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "",
+			"Name": "EyeR Open"
+		},
+		{
+			"Id": "ParamBrowLY",
+			"GroupId": "",
+			"Name": "BrowL Y"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "",
+			"Name": "EyeR Smile"
+		},
+		{
+			"Id": "ParamBrowRY",
+			"GroupId": "",
+			"Name": "BrowR Y"
+		},
+		{
+			"Id": "ParamBrowLAngle",
+			"GroupId": "",
+			"Name": "BrowL Angle"
+		},
+		{
+			"Id": "ParamBrowRAngle",
+			"GroupId": "",
+			"Name": "BrowR Angle"
+		},
+		{
+			"Id": "ParamBrowLForm",
+			"GroupId": "",
+			"Name": "BrowL Form"
+		},
+		{
+			"Id": "ParamBrowRForm",
+			"GroupId": "",
+			"Name": "BrowR Form"
+		},
+		{
+			"Id": "ParamCheek",
+			"GroupId": "",
+			"Name": "Cheek"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "",
+			"Name": "Body Z"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "head"
+		},
+		{
+			"Id": "ParamGroup2",
+			"GroupId": "",
+			"Name": "expressions"
+		},
+		{
+			"Id": "ParamGroup3",
+			"GroupId": "",
+			"Name": "body"
+		},
+		{
+			"Id": "ParamGroup5",
+			"GroupId": "",
+			"Name": "carrot"
+		},
+		{
+			"Id": "ParamGroup4",
+			"GroupId": "",
+			"Name": "hair"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "Part5",
+			"Name": "carrot"
+		},
+		{
+			"Id": "Folder3",
+			"Name": "Folder3"
+		},
+		{
+			"Id": "Part6",
+			"Name": "carrot"
+		},
+		{
+			"Id": "mouth",
+			"Name": "mouth"
+		},
+		{
+			"Id": "Part",
+			"Name": "hand(pet_exp)"
+		},
+		{
+			"Id": "Folder1",
+			"Name": "Folder1"
+		},
+		{
+			"Id": "Folder2",
+			"Name": "Folder2"
+		},
+		{
+			"Id": "Folder4",
+			"Name": "Folder4"
+		},
+		{
+			"Id": "mouthclose",
+			"Name": "mouthclose(carrot)"
+		},
+		{
+			"Id": "Part7",
+			"Name": "mouthopen(carrot)"
+		},
+		{
+			"Id": "Part8",
+			"Name": "boca1"
+		},
+		{
+			"Id": "Folder5",
+			"Name": "Folder5"
+		},
+		{
+			"Id": "armsupset",
+			"Name": "Arms(upsetparts)"
+		},
+		{
+			"Id": "Part3",
+			"Name": "armL"
+		},
+		{
+			"Id": "armupset",
+			"Name": "armupset"
+		},
+		{
+			"Id": "carrotarms",
+			"Name": "carrotarms"
+		},
+		{
+			"Id": "arm123",
+			"Name": "arm123"
+		},
+		{
+			"Id": "brazos",
+			"Name": "brazos(maincompleto)"
+		}
+	]
+}

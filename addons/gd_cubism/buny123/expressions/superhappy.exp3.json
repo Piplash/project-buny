@@ -1,0 +1,26 @@
+{
+	"Type": "Live2D Expression",
+	"FadeInTime": 0.5,
+	"Parameters": [
+		{
+			"Id": "happy",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"Value": -1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "super_happy",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "notes_opacity",
+			"Value": 1,
+			"Blend": "Add"
+		}
+	]
+}

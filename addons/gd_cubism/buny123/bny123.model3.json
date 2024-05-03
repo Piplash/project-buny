@@ -1,0 +1,83 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "bny123.moc3",
+		"Textures": [
+			"bny123.4096/texture_00.png"
+		],
+		"Physics": "bny123.physics3.json",
+		"DisplayInfo": "bny123.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "upset2",
+				"File": "expressions/upset2.exp3.json"
+			},
+			{
+				"Name": "carrot",
+				"File": "expressions/carrot.exp3.json"
+			},
+			{
+				"Name": "hand",
+				"File": "expressions/hand.exp3.json"
+			},
+			{
+				"Name": "handcry",
+				"File": "expressions/handcry.exp3.json"
+			},
+			{
+				"Name": "happy",
+				"File": "expressions/happy.exp3.json"
+			},
+			{
+				"Name": "superhappy",
+				"File": "expressions/superhappy.exp3.json"
+			},
+			{
+				"Name": "sad",
+				"File": "expressions/sad.exp3.json"
+			},
+			{
+				"Name": "sadcry",
+				"File": "expressions/sadcry.exp3.json"
+			},
+			{
+				"Name": "upset",
+				"File": "expressions/upset.exp3.json"
+			}
+		],
+		"Motions": {
+			"Idle": [
+				{
+					"File": "motions/idle.motion3.json"
+				},
+				{
+					"File": "motions/tears.motion3.json"
+				},
+				{
+					"File": "motions/hand.motion3.json"
+				},
+				{
+					"File": "motions/superhappyidle.motion3.json"
+				},
+				{
+					"File": "motions/carrot.motion3.json"
+				}
+			]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}

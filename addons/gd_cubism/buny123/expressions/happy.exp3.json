@@ -1,0 +1,11 @@
+{
+	"Type": "Live2D Expression",
+	"FadeInTime": 0.5,
+	"Parameters": [
+		{
+			"Id": "happy",
+			"Value": 1,
+			"Blend": "Add"
+		}
+	]
+}

@@ -1,0 +1,17 @@
+Cambios Generales
+
+-Función para comer zanahorias
+
+Novedades
+
+-Buny puede comer zanahorias desde el nivel 4
+-Nivel 5 es 'Very Happy'
+-Nivel 5-extra es 'Completely Happy', se alcanza cuando es nivel 5 y está 'Full' en su nivel de hambre
+
+Correcciones
+
+-Ojos corregidos
+
+Problemas Conocidos
+
+-No hay problemas conocidos

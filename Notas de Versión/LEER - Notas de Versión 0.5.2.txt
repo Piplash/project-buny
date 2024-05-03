@@ -1,0 +1,17 @@
+Cambios Generales
+
+-Correcciones generales
+
+Novedades
+
+-No hay novedades, solo correcciones
+
+Correcciones
+
+-Bug al subir de nivel mientras se acaricia, corregido. La subida de nivel se desactiva mientras se esté acariciando, y se vuelve a activar (subiendo niveles si es necesario) al liberar el click de acariciar
+-Corregido error con notas musicales. Ahora desaparecen al cambiar de animación
+-Con los cambios, hubo un bug que hacía aparecer la mano siempre que se baja de nivel, pero también fue corregido
+
+Problemas Conocidos
+
+-No encontré problemas

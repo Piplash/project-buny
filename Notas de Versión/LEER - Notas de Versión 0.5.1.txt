@@ -1,0 +1,17 @@
+Cambios Generales
+
+-Agregadas nuevas animaciones y expresiones
+
+Novedades
+
+-Cambia el cursor de acuerdo entrando a áreas "clickeables"
+
+Correcciones
+
+-Afecto sube al acariciar, pero no baja al mantener el mouse quieto, hasta que se libere el click
+-Reemplazado placeholder de upset por superhappy al llegar al nivel máximo
+
+Problemas Conocidos
+
+-Al subir/bajar de nivel, y cambiar la expresión, se pisa la expresión de la mano, desapareciendo unos segundos. Si se sigue acariciando mientras esto ocurre, la mano vuelve a aparecer tras un tiempo. Posible solución sería que la mano sea un motion y no un expression
+-Notas musicales de superhappy no desaparecer al cambiar de animación
