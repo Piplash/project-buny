@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfiaw0viijru5"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_pytoe"]
+[ext_resource type="PackedScene" uid="uid://colxn28rhf1fg" path="res://SceneChange.tscn" id="2_qktf3"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pytoe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1240.0
+offset_bottom = 720.0
+color = Color(1, 0.682353, 1, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 270.0
+offset_right = 553.0
+offset_bottom = 300.0
+scale = Vector2(3, 3)
+text = "Project Buny "
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 344.0
+offset_right = 599.0
+offset_bottom = 367.0
+scale = Vector2(2, 2)
+text = "Press Enter to Play"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1176.0
+offset_top = 689.0
+offset_right = 1221.0
+offset_bottom = 712.0
+text = "v0.6.3"
+
+[node name="SceneChange" parent="." instance=ExtResource("2_qktf3")]

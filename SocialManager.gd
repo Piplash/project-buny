@@ -20,35 +20,47 @@ var decreaseHungerPerSecond: float = 0.2
 var levelChange : bool = true
 var hungerChange: bool = true
 
-func _ready() -> void:
-	animationManagerScript = get_node("/root/Room/Character/Buny")
-	inputHandlerScript     = get_node("/root/Room/Character")
+var displayLevelUp: bool = false
+
+#func _ready() -> void:
+#	animationManagerScript = get_node("/root/Room/Character/Buny")
+#	inputHandlerScript     = get_node("/root/Room/Character")
 
 func _process(delta: float) -> void:
-	# Disminución del afecto. 0.5 cada 10 segundos > 0.5/10 = 0.05 (bajaPorSegundo)
-	if decreaseAffection == true:
-		affection -= decreasePerSecond * delta 
+	if animationManagerScript == null and get_node_or_null("/root/Room/Character/Buny") != null:
+		animationManagerScript = get_node("/root/Room/Character/Buny")
+	if inputHandlerScript == null and get_node_or_null("/root/Room/Character") != null:
+		inputHandlerScript = get_node("/root/Room/Character")
 	
-	if decreaseHunger == true:
-		hunger -= decreaseHungerPerSecond * delta
+	if animationManagerScript != null and inputHandlerScript != null:
+	
+		if decreaseAffection == true:
+			affection -= decreasePerSecond * delta 
+		
+		if decreaseHunger == true:
+			hunger -= decreaseHungerPerSecond * delta
 
-	affection = clamp(affection, 0.0, 100.0)
-	hunger    = clamp(hunger, 0.0, 100.0)
+		affection = clamp(affection, 0.0, 100.0)
+		hunger    = clamp(hunger, 0.0, 100.0)
 
-	if levelChange == true:
-		if prevAffectionLevel != affectionLevel:
-			animationManagerScript.changeAnimation(affectionLevel)
-			prevAffectionLevel = affectionLevel
+		if affectionLevel > prevAffectionLevel:
+			displayLevelUp = true
+			levelChange = true
 
-	var animationOn = inputHandlerScript.getAnimationOn()
+		if levelChange == true:
+			if prevAffectionLevel != affectionLevel:
+				animationManagerScript.changeAnimation(affectionLevel, displayLevelUp)
+				prevAffectionLevel = affectionLevel
 
-	if hungerChange == true:
-		if !animationOn:
-			if prevHungerLevel != hungerLevel:
-				animationManagerScript.changeAnimation(affectionLevel)
-				prevHungerLevel = hungerLevel
+		var animationOn = inputHandlerScript.getAnimationOn()
 
-	getAffectionLevel(affection)
+		if hungerChange == true:
+			if !animationOn:
+				if prevHungerLevel != hungerLevel:
+					animationManagerScript.changeAnimation(affectionLevel)
+					prevHungerLevel = hungerLevel
+
+		getAffectionLevel(affection)
 
 func getAffectionLevel(affection : float) -> Array:
 
@@ -69,8 +81,8 @@ func getAffectionLevel(affection : float) -> Array:
 	var response = [affectionLevel, mood]
 	return response
 
-func changeAnimation(originalAnimation) -> void:
-	animationManagerScript.changeAnimation(affectionLevel, originalAnimation)
+func changeAnimation() -> void:
+	animationManagerScript.changeAnimation(affectionLevel)
 
 func affectionInfo(affectionLevel) -> String:
 	var mood: String
@@ -118,6 +130,12 @@ func getHunger() -> String:
 	else:
 		hungerLevel = "Very hungry"
 	return hungerLevel
+
+func getDisplayLevelUp() -> bool:
+	return displayLevelUp
+
+func setDisplayLevelUp():
+	displayLevelUp = false
 
 func setDecreaseAffection(decrease: bool) -> void:
 	decreaseAffection = decrease

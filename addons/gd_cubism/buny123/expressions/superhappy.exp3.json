@@ -1,6 +1,5 @@
 {
 	"Type": "Live2D Expression",
-	"FadeInTime": 0.5,
 	"Parameters": [
 		{
 			"Id": "happy",
@@ -8,13 +7,13 @@
 			"Blend": "Add"
 		},
 		{
-			"Id": "ParamEyeLOpen",
-			"Value": -1,
+			"Id": "super_happy",
+			"Value": 1,
 			"Blend": "Add"
 		},
 		{
-			"Id": "super_happy",
-			"Value": 1,
+			"Id": "ParamEyeLOpen",
+			"Value": -1,
 			"Blend": "Add"
 		},
 		{

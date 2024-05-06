@@ -1,6 +1,6 @@
 {
 	"Type": "Live2D Expression",
-	"FadeInTime": 0.5,
+	"FadeInTime": 0.1,
 	"Parameters": [
 		{
 			"Id": "hand123",

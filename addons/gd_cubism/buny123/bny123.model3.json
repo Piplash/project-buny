@@ -43,24 +43,48 @@
 			{
 				"Name": "upset",
 				"File": "expressions/upset.exp3.json"
+			},
+			{
+				"Name": "hearts",
+				"File": "expressions/hearts.exp3.json"
 			}
 		],
 		"Motions": {
 			"Idle": [
 				{
+					"Name": "Idle",
 					"File": "motions/idle.motion3.json"
-				},
+				}
+			],
+			"Tears": [
 				{
+					"Name": "Tears",
 					"File": "motions/tears.motion3.json"
-				},
+				}
+			],
+			"Hand": [
 				{
 					"File": "motions/hand.motion3.json"
-				},
-				{
-					"File": "motions/superhappyidle.motion3.json"
-				},
+				}
+			],
+			"Carrot": [
 				{
 					"File": "motions/carrot.motion3.json"
+				}
+			],
+			"Superhappy": [
+				{
+					"File": "motions/superhappyidle.motion3.json"
+				}
+			],
+			"Upset": [
+				{
+					"File": "motions/upset.motion3.json"
+				}
+			],
+			"Hearts": [
+				{
+					"File": "motions/hearts.motion3.json"
 				}
 			]
 		}

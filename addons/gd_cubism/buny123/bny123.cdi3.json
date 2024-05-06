@@ -42,6 +42,16 @@
 			"Name": "Mouth Open"
 		},
 		{
+			"Id": "pupilas",
+			"GroupId": "ParamGroup",
+			"Name": "pupilas"
+		},
+		{
+			"Id": "HeadLilt",
+			"GroupId": "ParamGroup",
+			"Name": "headLilt"
+		},
+		{
 			"Id": "bite_head_par",
 			"GroupId": "ParamGroup",
 			"Name": "bite head mov"
@@ -97,6 +107,26 @@
 			"Name": "AmrUpset"
 		},
 		{
+			"Id": "hearts_mov",
+			"GroupId": "ParamGroup2",
+			"Name": "heartsmov"
+		},
+		{
+			"Id": "heartsmov2",
+			"GroupId": "ParamGroup2",
+			"Name": "heartsmov2"
+		},
+		{
+			"Id": "hearts_opacity",
+			"GroupId": "ParamGroup2",
+			"Name": "heartsopacity"
+		},
+		{
+			"Id": "Hearts",
+			"GroupId": "ParamGroup2",
+			"Name": "Hearts"
+		},
+		{
 			"Id": "ParamBreath",
 			"GroupId": "ParamGroup3",
 			"Name": "Breath"
@@ -120,6 +150,11 @@
 			"Id": "ParamBodyAngleX",
 			"GroupId": "ParamGroup3",
 			"Name": "Body X"
+		},
+		{
+			"Id": "armRotationX",
+			"GroupId": "ParamGroup3",
+			"Name": "armRotationX(upset)"
 		},
 		{
 			"Id": "amrsupset",
@@ -281,6 +316,14 @@
 	],
 	"Parts": [
 		{
+			"Id": "Folder6",
+			"Name": "Larm(upset)partsV2"
+		},
+		{
+			"Id": "Part2",
+			"Name": "refcolorhand"
+		},
+		{
 			"Id": "Part5",
 			"Name": "carrot"
 		},
@@ -333,6 +376,14 @@
 			"Name": "Arms(upsetparts)"
 		},
 		{
+			"Id": "Part9",
+			"Name": "Lamr(upset)parts"
+		},
+		{
+			"Id": "Part4",
+			"Name": "Rhand(upsetparts)"
+		},
+		{
 			"Id": "Part3",
 			"Name": "armL"
 		},
@@ -352,5 +403,11 @@
 			"Id": "brazos",
 			"Name": "brazos(maincompleto)"
 		}
+	],
+	"CombinedParameters": [
+		[
+			"hearts_mov",
+			"heartsmov2"
+		]
 	]
 }

@@ -9,12 +9,12 @@
 			"Blend": "Add"
 		},
 		{
-			"Id": "Carrot_opacity",
+			"Id": "body2",
 			"Value": 1,
 			"Blend": "Add"
 		},
 		{
-			"Id": "body2",
+			"Id": "Carrot_opacity",
 			"Value": 1,
 			"Blend": "Add"
 		}

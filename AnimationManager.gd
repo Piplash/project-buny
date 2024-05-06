@@ -7,51 +7,59 @@ func _ready():
 	#print("ANIMATION MANAGER")
 	$GDCubismUserModel.parameter_mode = 0
 	$GDCubismUserModel.start_expression("sadcry")
-	$GDCubismUserModel.start_motion_loop("Idle", 1, 3, true, true)
+	$GDCubismUserModel.start_motion_loop("Tears", 0, 3, true, true)
 
 	socialManagerScript = get_node("/root/SocialManager")
 	inputHandlerScript  = get_node("/root/Room/Character")
 
-func changeAnimation(animation: int, originalAnimation = null) -> void:
-	
+func changeAnimation(animation: int, displayLevelUp = false) -> void:
+
 	var patting = inputHandlerScript.getPatting()
 	var hunger  = socialManagerScript.getHunger()
-	
-	if !patting:
-		$GDCubismUserModel.stop_expression()
+	var eating = inputHandlerScript.getEating()
 
-	if originalAnimation!=null:
+	if eating:
 		$GDCubismUserModel.stop_expression()
+		inputHandlerScript.setEating()
+
+	if !patting:
+		pass
+		#$GDCubismUserModel.stop_expression()
+
+	
+	if displayLevelUp == true:
+		$GDCubismUserModel.stop_expression()
+		$GDCubismUserModel.stop_motion()
+		$GDCubismUserModel.start_expression("hearts")
+		$GDCubismUserModel.start_motion_loop("Hearts", 0, 3, true, true)
+		await get_tree().create_timer(2).timeout
+		socialManagerScript.setDisplayLevelUp()
+		inputHandlerScript.setAnimationOn()
 
 	if animation == 5:
-		#print("CHANGE TO 5")
 		#$GDCubismUserModel.stop_expression()
-		$GDCubismUserModel.start_motion_loop("Idle", 3, 3, true, true)
+		$GDCubismUserModel.start_motion_loop("Superhappy", 0, 3, true, true)
 		if hunger == 'Full':
 			$GDCubismUserModel.start_expression("superhappy")
 		else:
 			$GDCubismUserModel.start_expression("happy")
 
 	if animation == 4:
-		#print("CHANGE TO 4")
 		#$GDCubismUserModel.stop_expression()
 		$GDCubismUserModel.start_motion_loop("Idle", 0, 3, true, true)
 		$GDCubismUserModel.start_expression("happy")
 
 	if animation == 3:
-		#print("CHANGE TO 3")
 		#$GDCubismUserModel.stop_expression()
 		$GDCubismUserModel.start_motion_loop("Idle", 0, 3, true, true)
 		$GDCubismUserModel.start_expression("sad")
 
 	if animation == 2:
-		#print("CHANGE TO 2")
 		#$GDCubismUserModel.stop_expression()
 		$GDCubismUserModel.start_motion_loop("Idle", 0, 3, true, true)
 		$GDCubismUserModel.start_expression("sadcry")
 
 	if animation == 1:
-		#print("CHANGE TO 1")
 		#$GDCubismUserModel.stop_expression()
-		$GDCubismUserModel.start_motion_loop("Idle", 1, 3, true, true)
+		$GDCubismUserModel.start_motion_loop("Tears", 0, 3, true, true)
 		$GDCubismUserModel.start_expression("sadcry")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bshcmoflw3ek1"]
+[gd_scene load_steps=17 format=3 uid="uid://bshcmoflw3ek1"]
 
 [ext_resource type="Script" path="res://AffectionData.gd" id="1_ed4pk"]
 [ext_resource type="Texture2D" uid="uid://bwffn0bq8y4kp" path="res://assets/background.jpg" id="2_5x8cf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://1juaojeeur03" path="res://assets/zanahoria.png" id="6_kjark"]
 [ext_resource type="AudioStream" uid="uid://deqd2dqmxxq1l" path="res://assets/background-music.mp3" id="6_mqf5c"]
 [ext_resource type="Script" path="res://MouseEvents.gd" id="7_pd2bv"]
+[ext_resource type="PackedScene" uid="uid://colxn28rhf1fg" path="res://SceneChange.tscn" id="10_gjajk"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_s36ff"]
 viewport_path = NodePath("Character/Buny/GDCubismUserModel")
@@ -108,43 +109,50 @@ assets = "res://addons/gd_cubism/buny123/bny123.model3.json"
 anim_loop = true
 anim_loop_fade_in = true
 anim_expression = "sadcry"
-anim_motion = "Idle_1"
-ParamAngleX = 0.0
-ParamAngleY = 0.0
-ParamEyeBallX = 0.0
-ParamEyeBallY = 0.0
-Eyes_mov = 0.260001
-ParamEyeLOpen = 1.0
+anim_motion = "Tears_0"
+ParamAngleX = -6.28416
+ParamAngleY = -7.68064
+ParamEyeBallX = 0.548552
+ParamEyeBallY = -0.818861
+Eyes_mov = 0.26
+ParamEyeLOpen = 0.668501
 ParamMouthForm = 0.0
 ParamMouthOpenY = 0.0
+pupilas = 0.722674
+HeadLilt = 0.792228
 bite_head_par = 0.0
 upset = 0.0
-sad = 0.627
+sad = 0.6
 cry = 1.0
-happy = 0.0
+happy = 0.612665
 super_happy = 0.0
-loopcry1 = 0.112095
+loopcry1 = 0.85816
 loopcry2 = 0.0
 hand123 = 0.0
-hand = 0.5
+hand = 0.957914
 ArmUpset = 0.0
-ParamBreath = 0.709009
-torso_mov = 0.523696
+hearts_mov = 0.957154
+heartsmov2 = 0.390366
+hearts_opacity = 0.0
+Hearts = 0.0
+ParamBreath = 0.994459
+torso_mov = 0.646978
 body2 = 0.0
 main_arms = 0.0
-ParamBodyAngleX = 0.0
+ParamBodyAngleX = -0.247781
+armRotationX = 0.5
 amrsupset = 0.0
 ParamAngleZ = 0.0
 Carrot_opacity = 0.0
 Carrot_bites = 0.0
 armcarrotL = 0.0
 CarrotY = 0.0
-happy_body = 0.5
+happy_body = 0.465266
 notes1 = 0.5
 notes_opacity = 0.0
-ParamHairFront = 0.0
-ParamHairSide = -0.286128
-ParamHairBack = -0.174
+ParamHairFront = -8.65465e-07
+ParamHairSide = -0.28163
+ParamHairBack = -0.178011
 ParamBrowLX = 0.0
 ParamBrowRX = 0.0
 ParamEyeLSmile = 0.0
@@ -159,6 +167,7 @@ ParamBrowLForm = 0.0
 ParamBrowRForm = 0.0
 ParamCheek = 0.0
 ParamBodyAngleZ = 0.0
+Folder6 = 1.0
 Part5 = 1.0
 Folder3 = 1.0
 Part6 = 1.0
@@ -172,8 +181,9 @@ Part7 = 1.0
 Part8 = 1.0
 Folder5 = 1.0
 armsupset = 1.0
+Part9 = 1.0
+Part4 = 1.0
 Part3 = 1.0
-armupset = 1.0
 carrotarms = 1.0
 arm123 = 1.0
 brazos = 1.0
@@ -190,7 +200,6 @@ position = Vector2(2180, 2310)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/ModelArea"]
 position = Vector2(360, -770)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1rjy1")
 
 [node name="HeadArea" type="Area2D" parent="Character/Buny"]
@@ -240,4 +249,6 @@ script = ExtResource("7_pd2bv")
 stream = ExtResource("6_mqf5c")
 volume_db = -40.0
 pitch_scale = 0.9
-autoplay = true
+
+[node name="SceneChange" parent="." instance=ExtResource("10_gjajk")]
+visible = false

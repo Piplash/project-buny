@@ -1,8 +1,12 @@
 extends Node2D
 
+@onready var anim = $SceneChange/Intro
+
 var socialManagerScript: Node
 
+
 func _ready() -> void:
+	anim.play("fade_out")
 	socialManagerScript = get_node("/root/SocialManager")
 
 func _process(delta: float) -> void:

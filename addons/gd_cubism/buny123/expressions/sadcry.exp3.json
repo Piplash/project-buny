@@ -1,10 +1,9 @@
 {
 	"Type": "Live2D Expression",
-	"FadeInTime": 0.5,
 	"Parameters": [
 		{
 			"Id": "sad",
-			"Value": 0.627,
+			"Value": 0.6,
 			"Blend": "Add"
 		},
 		{

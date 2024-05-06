@@ -1,0 +1,20 @@
+{
+	"Type": "Live2D Expression",
+	"Parameters": [
+		{
+			"Id": "ParamEyeLOpen",
+			"Value": -1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "Hearts",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "hearts_opacity",
+			"Value": 1,
+			"Blend": "Add"
+		}
+	]
+}

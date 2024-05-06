@@ -1,15 +1,9 @@
 {
 	"Type": "Live2D Expression",
-	"FadeInTime": 0.5,
-	"FadeOutTime": 0.5,
+	"FadeInTime": 0,
 	"Parameters": [
 		{
 			"Id": "upset",
-			"Value": 1,
-			"Blend": "Add"
-		},
-		{
-			"Id": "main_arms",
 			"Value": 1,
 			"Blend": "Add"
 		},
@@ -19,7 +13,12 @@
 			"Blend": "Add"
 		},
 		{
-			"Id": "ArmUpset",
+			"Id": "main_arms",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "amrsupset",
 			"Value": 1,
 			"Blend": "Add"
 		}
