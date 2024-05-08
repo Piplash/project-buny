@@ -5,9 +5,9 @@
 		"Fps": 30.0,
 		"Loop": true,
 		"AreBeziersRestricted": true,
-		"CurveCount": 10,
-		"TotalSegmentCount": 46,
-		"TotalPointCount": 140,
+		"CurveCount": 13,
+		"TotalSegmentCount": 49,
+		"TotalPointCount": 146,
 		"UserDataCount": 0,
 		"TotalUserDataSize": 0
 	},
@@ -130,6 +130,39 @@
 		{
 			"Target": "Parameter",
 			"Id": "ParamAngleZ",
+			"Segments": [
+				0,
+				0,
+				0,
+				5,
+				0
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Id": "Carrot_bites",
+			"Segments": [
+				0,
+				0,
+				0,
+				5,
+				0
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Id": "armcarrotL",
+			"Segments": [
+				0,
+				0,
+				0,
+				5,
+				0
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Id": "CarrotY",
 			"Segments": [
 				0,
 				0,

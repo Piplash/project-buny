@@ -10,9 +10,11 @@ var prevAffectionLevel: int = 1
 var decreasePerSecond : float = 0.1
 var decreaseAffection: bool = true
 
+var increaseAffection: bool = true
+
 var hunger : float = 0
-var hungerLevel: String = 'Very hungry'
-var prevHungerLevel: String = 'Very hungry'
+var hungerLevel: String = 'Starving'
+var prevHungerLevel: String = 'Starving'
 
 var decreaseHunger: bool = true
 var decreaseHungerPerSecond: float = 0.2
@@ -27,6 +29,7 @@ var displayLevelUp: bool = false
 #	inputHandlerScript     = get_node("/root/Room/Character")
 
 func _process(delta: float) -> void:
+	print(hunger)
 	if animationManagerScript == null and get_node_or_null("/root/Room/Character/Buny") != null:
 		animationManagerScript = get_node("/root/Room/Character/Buny")
 	if inputHandlerScript == null and get_node_or_null("/root/Room/Character") != null:
@@ -46,6 +49,7 @@ func _process(delta: float) -> void:
 		if affectionLevel > prevAffectionLevel:
 			displayLevelUp = true
 			levelChange = true
+			affection = affection + 3
 
 		if levelChange == true:
 			if prevAffectionLevel != affectionLevel:
@@ -59,6 +63,8 @@ func _process(delta: float) -> void:
 				if prevHungerLevel != hungerLevel:
 					animationManagerScript.changeAnimation(affectionLevel)
 					prevHungerLevel = hungerLevel
+					if hungerLevel == 'Full':
+						hunger = hunger + 2
 
 		getAffectionLevel(affection)
 
@@ -66,7 +72,7 @@ func getAffectionLevel(affection : float) -> Array:
 
 	if affection >= 90.0:
 		affectionLevel = 5
-	elif affection >= 80.0:
+	elif affection >= 70.0:
 		affectionLevel = 4
 	elif affection >= 40.0:
 		affectionLevel = 3
@@ -111,8 +117,9 @@ func affectionData() -> Array:
 
 #Aumenta el afecto de acuerdo a distintas acciones
 func modifyAffection(modifyAffectionBy: float) -> void:
-	affection = affection + modifyAffectionBy
-	affection = clamp(affection, 0.0, 100.0)
+	if increaseAffection == true:
+		affection = affection + modifyAffectionBy
+		affection = clamp(affection, 0.0, 100.0)
 
 func modifyHunger(modifyHungerBy: float) -> void:
 	hunger = hunger + modifyHungerBy
@@ -125,10 +132,12 @@ func getCurrentLevel() -> int:
 func getHunger() -> String:
 	if hunger >= 90:
 		hungerLevel = "Full"
-	elif hunger >= 30:
-		hungerLevel = "Kind of hungry"
+	elif hunger >= 60:
+		hungerLevel = "Slightly Hungry"
+	elif hunger >= 20:
+		hungerLevel = "Hungry"
 	else:
-		hungerLevel = "Very hungry"
+		hungerLevel = "Starving"
 	return hungerLevel
 
 func getDisplayLevelUp() -> bool:
@@ -139,6 +148,9 @@ func setDisplayLevelUp():
 
 func setDecreaseAffection(decrease: bool) -> void:
 	decreaseAffection = decrease
-	
+
 func setLevelChange(level: bool) -> void:
 	levelChange = level
+
+func setIncreaseAffection(increase: bool) -> void:
+	increaseAffection = increase

@@ -102,11 +102,6 @@
 			"Name": "hand_mov"
 		},
 		{
-			"Id": "ArmUpset",
-			"GroupId": "ParamGroup2",
-			"Name": "AmrUpset"
-		},
-		{
 			"Id": "hearts_mov",
 			"GroupId": "ParamGroup2",
 			"Name": "heartsmov"
@@ -125,6 +120,11 @@
 			"Id": "Hearts",
 			"GroupId": "ParamGroup2",
 			"Name": "Hearts"
+		},
+		{
+			"Id": "ArmUpset",
+			"GroupId": "ParamGroup2",
+			"Name": "AmrUpset"
 		},
 		{
 			"Id": "ParamBreath",

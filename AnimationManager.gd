@@ -16,7 +16,13 @@ func changeAnimation(animation: int, displayLevelUp = false) -> void:
 
 	var patting = inputHandlerScript.getPatting()
 	var hunger  = socialManagerScript.getHunger()
-	var eating = inputHandlerScript.getEating()
+	var eating  = inputHandlerScript.getEating()
+	var upset   = inputHandlerScript.getUpset()
+
+	if upset:
+		$GDCubismUserModel.stop_expression()
+		$GDCubismUserModel.stop_motion()
+		inputHandlerScript.setUpset()
 
 	if eating:
 		$GDCubismUserModel.stop_expression()

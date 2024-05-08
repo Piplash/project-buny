@@ -52,13 +52,11 @@
 		"Motions": {
 			"Idle": [
 				{
-					"Name": "Idle",
 					"File": "motions/idle.motion3.json"
 				}
 			],
 			"Tears": [
 				{
-					"Name": "Tears",
 					"File": "motions/tears.motion3.json"
 				}
 			],
@@ -79,7 +77,9 @@
 			],
 			"Upset": [
 				{
-					"File": "motions/upset.motion3.json"
+					"File": "motions/upset.motion3.json",
+					"FadeInTime": 0,
+					"FadeOutTime": 0
 				}
 			],
 			"Hearts": [

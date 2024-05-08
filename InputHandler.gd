@@ -15,11 +15,12 @@ var pointerHovering : bool = false
 var dragginCarrot   : bool = false
 var animationOn     : bool = false
 var bunyEating      : bool = false
+var bunyUpset       : bool = false
 
 var startExpression : bool = true
 var stopExpression  : bool = true
 
-var patAffectionIncrease  : float = 0.12
+var patAffectionIncrease  : float = 0.10
 var chestAffectionDecrease: float = -5.0
 
 var carrotInitialPosition: Vector2
@@ -90,19 +91,24 @@ func toDoOnHeadArea(event, level) -> void:
 				pointerHovering  = true
 				socialManagerScript.setLevelChange(false)
 
-				if level == 2:
-					patAffectionIncrease = 0.11
-				elif level ==3:
-					patAffectionIncrease = 0.09
-				elif level == 4:
-					patAffectionIncrease = 0.07
-				elif level == 5:
-					patAffectionIncrease = 0.04
-				else:
-					patAffectionIncrease = 0.12
-
+				#if level == 2:
+				#	patAffectionIncrease = 0.11
+				#elif level ==3:
+				#	patAffectionIncrease = 0.09
+				#elif level == 4:
+				#	patAffectionIncrease = 0.07
+				#elif level == 5:
+				#	patAffectionIncrease = 0.04
+				#else:
+				#	patAffectionIncrease = 0.12
+				socialManagerScript.setIncreaseAffection(true)
 				socialManagerScript.setDecreaseAffection(false)
 				socialManagerScript.modifyAffection(patAffectionIncrease)
+
+				var displayLevelUp = socialManagerScript.getDisplayLevelUp()
+				if displayLevelUp:
+					animationOn = true
+					Input.set_custom_mouse_cursor(arrowPointer)
 
 				if stopExpression == true:
 					$Buny/GDCubismUserModel.stop_expression()
@@ -121,14 +127,16 @@ func toDoOnChestArea(event) -> void:
 	if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 				animationOn = true
+				bunyUpset   = true
 				Input.set_custom_mouse_cursor(arrowPointer)
-				
+
 				socialManagerScript.setLevelChange(false)
 				socialManagerScript.modifyAffection(chestAffectionDecrease)
+
 				$Buny/GDCubismUserModel.stop_expression()
-				$Buny/GDCubismUserModel.start_expression("upset")
-				#$Buny/GDCubismUserModel.start_motion("Upset", 0, 3)
-				defaultAnimation(2.0)
+				$Buny/GDCubismUserModel.start_expression("upset2")
+				$Buny/GDCubismUserModel.start_motion("Upset", 0, 3)
+				defaultAnimation(2)
 				await get_tree().create_timer(0.7).timeout
 				$Buny/UpsetSound.play()
 
@@ -157,6 +165,7 @@ func toDoOnUnpressedClick(event) -> void:
 			if displayLevelUp:
 				animationOn = true
 				Input.set_custom_mouse_cursor(arrowPointer)
+				socialManagerScript.setIncreaseAffection(false)
 
 			if !displayLevelUp:
 				defaultAnimation(0.5)
@@ -171,7 +180,6 @@ func toDoOnUnpressedClick(event) -> void:
 			if cursorOverFeedingArea:
 				var level = socialManagerScript.getCurrentLevel()
 				var hunger = socialManagerScript.getHunger()
-				print("Logic to feed")
 				if level >= 4 and hunger != "Full":
 					bunyEating = true
 					animationOn = true
@@ -198,7 +206,6 @@ func toDoOnUnpressedClick(event) -> void:
 						return
 
 func defaultAnimation(timer: float) -> void:
-	print("4")
 	await get_tree().create_timer(timer).timeout
 	animationOn = false
 	socialManagerScript.setLevelChange(true)
@@ -207,6 +214,11 @@ func defaultAnimation(timer: float) -> void:
 #Getters / Setters
 func getPatting() -> bool:
 	return pointerHovering
+
+func getUpset() -> bool:
+	return bunyUpset
+func setUpset():
+	bunyUpset = false
 
 func getEating() -> bool:
 	return bunyEating
