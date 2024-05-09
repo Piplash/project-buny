@@ -29,7 +29,6 @@ var displayLevelUp: bool = false
 #	inputHandlerScript     = get_node("/root/Room/Character")
 
 func _process(delta: float) -> void:
-	print(hunger)
 	if animationManagerScript == null and get_node_or_null("/root/Room/Character/Buny") != null:
 		animationManagerScript = get_node("/root/Room/Character/Buny")
 	if inputHandlerScript == null and get_node_or_null("/root/Room/Character") != null:
@@ -87,8 +86,8 @@ func getAffectionLevel(affection : float) -> Array:
 	var response = [affectionLevel, mood]
 	return response
 
-func changeAnimation() -> void:
-	animationManagerScript.changeAnimation(affectionLevel)
+func changeAnimation(me: bool = false) -> void:
+	animationManagerScript.changeAnimation(affectionLevel, false, me)
 
 func affectionInfo(affectionLevel) -> String:
 	var mood: String

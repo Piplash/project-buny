@@ -12,7 +12,7 @@ func _ready():
 	socialManagerScript = get_node("/root/SocialManager")
 	inputHandlerScript  = get_node("/root/Room/Character")
 
-func changeAnimation(animation: int, displayLevelUp = false) -> void:
+func changeAnimation(animation: int, displayLevelUp = false, me = false) -> void:
 
 	var patting = inputHandlerScript.getPatting()
 	var hunger  = socialManagerScript.getHunger()
@@ -28,9 +28,8 @@ func changeAnimation(animation: int, displayLevelUp = false) -> void:
 		$GDCubismUserModel.stop_expression()
 		inputHandlerScript.setEating()
 
-	if !patting:
-		pass
-		#$GDCubismUserModel.stop_expression()
+	if !patting and me:
+		$GDCubismUserModel.stop_expression()
 
 	
 	if displayLevelUp == true:

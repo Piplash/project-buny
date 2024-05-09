@@ -5,11 +5,15 @@ var socialManagerScript: Node
 var mouseEventScript: Node
 var carrot: Node
 
-var cursorOverHeadArea   : bool = false
-var cursorOverChestArea  : bool = false
-var cursorOverCarrotArea : bool = false
-var cursorOverFeedingArea: bool = false
-var cursorOverModelArea  : bool = false
+var cursorOverHeadArea      : bool = false
+var cursorOverChestArea     : bool = false
+var cursorOverCarrotArea    : bool = false
+var cursorOverFeedingArea   : bool = false
+var cursorOverModelArea     : bool = false
+var cursorOverLeftCheekArea : bool = false
+var cursorOverRightCheekArea: bool = false
+var cursorOverLeftEarArea   : bool = false
+var cursorOverRightEarArea  : bool = false
 
 var pointerHovering : bool = false
 var dragginCarrot   : bool = false
@@ -27,9 +31,13 @@ var carrotInitialPosition: Vector2
 var drag_offset          : Vector2
 
 var arrowPointer
+var handPointer
+
+var fromMouseEvent: bool = false
 
 func _ready():
 	arrowPointer = load("res://assets/arrowPointer.png")
+	handPointer  = load("res://assets/handPointer.png")
 	
 	socialManagerScript = get_node("/root/SocialManager")
 	mouseEventScript    = get_node("/root/Room/Scripts/MouseEvents")
@@ -38,11 +46,15 @@ func _ready():
 	carrotInitialPosition = carrot.position
 
 func _process(delta):
-	cursorOverHeadArea    = mouseEventScript.getHeadArea()
-	cursorOverChestArea   = mouseEventScript.getChestArea()
-	cursorOverCarrotArea  = mouseEventScript.getCarrotArea()
-	cursorOverFeedingArea = mouseEventScript.getFeedingArea()
-	cursorOverModelArea   = mouseEventScript.getModelArea()
+	cursorOverHeadArea       = mouseEventScript.getHeadArea()
+	cursorOverChestArea      = mouseEventScript.getChestArea()
+	cursorOverCarrotArea     = mouseEventScript.getCarrotArea()
+	cursorOverFeedingArea    = mouseEventScript.getFeedingArea()
+	cursorOverModelArea      = mouseEventScript.getModelArea()
+	cursorOverLeftCheekArea  = mouseEventScript.getLeftCheekArea()
+	cursorOverRightCheekArea = mouseEventScript.getRightCheekArea()
+	cursorOverLeftEarArea    = mouseEventScript.getLeftEarArea()
+	cursorOverRightEarArea   = mouseEventScript.getRightEarArea()
 
 func _input(event):
 	var level = socialManagerScript.getCurrentLevel()
@@ -60,6 +72,14 @@ func _input(event):
 	if cursorOverCarrotArea == true:
 		if !animationOn:
 			toDoOnCarrotArea(event)
+
+	if cursorOverLeftCheekArea or cursorOverRightCheekArea:
+		if !animationOn:
+			toDoOnCheeks(event)
+	
+	if cursorOverLeftEarArea or cursorOverRightEarArea:
+		if !animationOn:
+			toDoOnEars(event)
 
 	toDoOnUnpressedClick(event)
 
@@ -87,41 +107,88 @@ func followPointer(event) -> void:
 
 func toDoOnHeadArea(event, level) -> void:
 	if event is InputEventMouseMotion and !dragginCarrot:
-			if event.button_mask & MOUSE_BUTTON_MASK_LEFT:
-				pointerHovering  = true
-				socialManagerScript.setLevelChange(false)
+		fromMouseEvent = false
+		if event.button_mask & MOUSE_BUTTON_MASK_LEFT:
+			pointerHovering  = true
+			socialManagerScript.setLevelChange(false)
 
-				#if level == 2:
-				#	patAffectionIncrease = 0.11
-				#elif level ==3:
-				#	patAffectionIncrease = 0.09
-				#elif level == 4:
-				#	patAffectionIncrease = 0.07
-				#elif level == 5:
-				#	patAffectionIncrease = 0.04
-				#else:
-				#	patAffectionIncrease = 0.12
-				socialManagerScript.setIncreaseAffection(true)
-				socialManagerScript.setDecreaseAffection(false)
-				socialManagerScript.modifyAffection(patAffectionIncrease)
+			socialManagerScript.setIncreaseAffection(true)
+			socialManagerScript.setDecreaseAffection(false)
+			socialManagerScript.modifyAffection(patAffectionIncrease)
 
-				var displayLevelUp = socialManagerScript.getDisplayLevelUp()
-				if displayLevelUp:
-					animationOn = true
-					Input.set_custom_mouse_cursor(arrowPointer)
+			var displayLevelUp = socialManagerScript.getDisplayLevelUp()
+			if displayLevelUp:
+				animationOn = true
+				Input.set_custom_mouse_cursor(arrowPointer)
 
-				if stopExpression == true:
-					$Buny/GDCubismUserModel.stop_expression()
-					stopExpression = false
+			if stopExpression == true:
+				$Buny/GDCubismUserModel.stop_expression()
+				stopExpression = false
 
-				if startExpression == true:
-					if level == 1 or level == 2:
-						$Buny/GDCubismUserModel.start_expression("handcry")
-					else:
-						$Buny/GDCubismUserModel.start_expression("hand")
+			if startExpression == true:
+				if level == 1 or level == 2:
+					$Buny/GDCubismUserModel.start_expression("handcry")
+				else:
+					$Buny/GDCubismUserModel.start_expression("hand")
 
-					$Buny/GDCubismUserModel.start_motion_loop("Hand", 0, 3, true, true)
-					startExpression = false
+				$Buny/GDCubismUserModel.start_motion_loop("Hand", 0, 3, true, true)
+				startExpression = false
+
+func toDoOnCheeks(event) -> void:
+	if event is InputEventMouseMotion and !dragginCarrot:
+		if event.button_mask & MOUSE_BUTTON_MASK_LEFT:
+			pointerHovering  = true
+			socialManagerScript.setLevelChange(false)
+
+			socialManagerScript.setIncreaseAffection(true)
+			socialManagerScript.setDecreaseAffection(false)
+			socialManagerScript.modifyAffection(patAffectionIncrease)
+			
+			var displayLevelUp = socialManagerScript.getDisplayLevelUp()
+			if displayLevelUp:
+				animationOn = true
+				Input.set_custom_mouse_cursor(arrowPointer)
+			
+			if stopExpression == true:
+				$Buny/GDCubismUserModel.stop_expression()
+				stopExpression = false
+
+			if startExpression == true:
+				if cursorOverLeftCheekArea:
+					print("LEFT CHEEK EXPRESSION")
+				elif cursorOverRightCheekArea:
+					print("RIGHT CHEEK EXPRESSION")
+
+				#$Buny/GDCubismUserModel.start_motion_loop("Hand", 0, 3, true, true)
+				startExpression = false
+
+func toDoOnEars(event) -> void:
+	if event is InputEventMouseMotion and !dragginCarrot:
+		if event.button_mask & MOUSE_BUTTON_MASK_LEFT:
+			pointerHovering  = true
+			socialManagerScript.setLevelChange(false)
+
+			socialManagerScript.setIncreaseAffection(true)
+			socialManagerScript.setDecreaseAffection(false)
+			socialManagerScript.modifyAffection(patAffectionIncrease)
+			
+			var displayLevelUp = socialManagerScript.getDisplayLevelUp()
+			if displayLevelUp:
+				animationOn = true
+				Input.set_custom_mouse_cursor(arrowPointer)
+			
+			if stopExpression == true:
+				$Buny/GDCubismUserModel.stop_expression()
+				stopExpression = false
+
+			if startExpression == true:
+				if cursorOverLeftEarArea:
+					print("LEFT EAR EXPRESSION")
+				elif cursorOverRightEarArea:
+					print("RIGHT EAR EXPRESSION")
+
+				#$Buny/GDCubismUserModel.start_motion_loop("Hand", 0, 3, true, true)
+				startExpression = false
 
 func toDoOnChestArea(event) -> void:
 	if event is InputEventMouseButton:
@@ -138,6 +205,7 @@ func toDoOnChestArea(event) -> void:
 				$Buny/GDCubismUserModel.start_motion("Upset", 0, 3)
 				defaultAnimation(2)
 				await get_tree().create_timer(0.7).timeout
+
 				$Buny/UpsetSound.play()
 
 func toDoOnCarrotArea(event) -> void:
@@ -167,7 +235,7 @@ func toDoOnUnpressedClick(event) -> void:
 				Input.set_custom_mouse_cursor(arrowPointer)
 				socialManagerScript.setIncreaseAffection(false)
 
-			if !displayLevelUp:
+			if !displayLevelUp and !fromMouseEvent:
 				defaultAnimation(0.5)
 
 			startExpression = true
@@ -205,11 +273,12 @@ func toDoOnUnpressedClick(event) -> void:
 						$Buny/UpsetSound.play()
 						return
 
-func defaultAnimation(timer: float) -> void:
+func defaultAnimation(timer: float, me: bool = false) -> void:
+	fromMouseEvent = me
 	await get_tree().create_timer(timer).timeout
 	animationOn = false
 	socialManagerScript.setLevelChange(true)
-	socialManagerScript.changeAnimation()
+	socialManagerScript.changeAnimation(me)
 
 #Getters / Setters
 func getPatting() -> bool:
@@ -227,6 +296,6 @@ func setEating():
 
 func getAnimationOn() -> bool:
 	return animationOn
-func setAnimationOn():
-	animationOn = false
+func setAnimationOn(animation = false):
+	animationOn = animation
 

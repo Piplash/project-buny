@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bshcmoflw3ek1"]
+[gd_scene load_steps=17 format=3 uid="uid://bshcmoflw3ek1"]
 
 [ext_resource type="Script" path="res://AffectionData.gd" id="1_ed4pk"]
 [ext_resource type="Texture2D" uid="uid://bwffn0bq8y4kp" path="res://assets/background.jpg" id="2_5x8cf"]
@@ -17,19 +17,14 @@ viewport_path = NodePath("Character/Buny/GDCubismUserModel")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rjy1"]
 size = Vector2(8720, 5920)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ufi6"]
-size = Vector2(64.5487, 27.25)
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2t3s"]
+radius = 620.081
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uok2"]
 size = Vector2(411.5, 196.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d70df"]
 size = Vector2(1330, 1286.25)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_sb01v"]
-radius = 7.03122
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gd7r2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lnb0"]
 size = Vector2(990, 990)
@@ -131,8 +126,8 @@ sad = 0.6
 cry = 1.0
 happy = 0.0
 super_happy = 0.0
-loopcry1 = 0.835318
-loopcry2 = 1.0
+loopcry1 = 0.010814
+loopcry2 = 0.0
 hand123 = 0.0
 hand = 0.5
 hearts_mov = 0.0
@@ -140,11 +135,11 @@ heartsmov2 = 1.0
 hearts_opacity = 0.0
 Hearts = 0.0
 ArmUpset = 0.0
-ParamBreath = 0.233761
-torso_mov = 0.525105
+ParamBreath = 0.908306
+torso_mov = 0.645697
 body2 = 0.0
 main_arms = 0.0
-ParamBodyAngleX = -1.2021
+ParamBodyAngleX = -0.553275
 armRotationX = 0.5
 amrsupset = 0.0
 ParamAngleZ = 0.0
@@ -156,8 +151,8 @@ happy_body = 0.5
 notes1 = 0.5
 notes_opacity = 0.0
 ParamHairFront = 0.0
-ParamHairSide = -0.263107
-ParamHairBack = -0.17225
+ParamHairSide = 0.263472
+ParamHairBack = 0.0878893
 ParamBrowLX = 0.0
 ParamBrowRX = 0.0
 ParamEyeLSmile = 0.0
@@ -206,14 +201,10 @@ position = Vector2(360, -770)
 shape = SubResource("RectangleShape2D_1rjy1")
 
 [node name="HeadArea" type="Area2D" parent="Character/Buny"]
-position = Vector2(1940, 1320)
-scale = Vector2(20, 20)
+position = Vector2(2030, 1560)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/HeadArea"]
-position = Vector2(-3, -0.5)
-rotation = -0.367201
-scale = Vector2(0.894355, 0.912229)
-shape = SubResource("RectangleShape2D_7ufi6")
+shape = SubResource("CircleShape2D_w2t3s")
 
 [node name="ChestArea" type="Area2D" parent="Character/Buny"]
 position = Vector2(2170, 2520)
@@ -228,37 +219,6 @@ position = Vector2(1950, 1610)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/FeedingHeadArea"]
 position = Vector2(15, -23.125)
 shape = SubResource("RectangleShape2D_d70df")
-
-[node name="LeftCheek" type="Area2D" parent="Character/Buny"]
-position = Vector2(1730, 2010)
-scale = Vector2(12.8, 10)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/LeftCheek"]
-shape = SubResource("CircleShape2D_sb01v")
-
-[node name="RightCheek" type="Area2D" parent="Character/Buny"]
-position = Vector2(2150, 1910)
-scale = Vector2(0.95, 0.7)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/RightCheek"]
-scale = Vector2(10, 10)
-shape = SubResource("CircleShape2D_gd7r2")
-
-[node name="LeftEar" type="Area2D" parent="Character/Buny"]
-position = Vector2(960, 1180)
-scale = Vector2(1, 1)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Character/Buny/LeftEar"]
-position = Vector2(-930, -1000)
-polygon = PackedVector2Array(420, 1100, 670, 910, 1130, 640, 1600, 900, 1430, 1090, 1100, 960, 810, 1290, 440, 1360)
-
-[node name="RightEar" type="Area2D" parent="Character/Buny"]
-position = Vector2(2020, 610)
-scale = Vector2(1, 1)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Character/Buny/RightEar"]
-scale = Vector2(50, 50)
-polygon = PackedVector2Array(-1.60001, 6.8, -3.80001, 1.4, -7.2, -5, -10, -9, -6.80001, -12.8, -3.40001, -9.8, 0.199997, -6, 2.59999, -1.6, 3.39999, 7.8)
 
 [node name="UpsetSound" type="AudioStreamPlayer" parent="Character/Buny"]
 stream = ExtResource("5_pnfwi")
@@ -290,4 +250,3 @@ pitch_scale = 0.9
 autoplay = true
 
 [node name="SceneChange" parent="." instance=ExtResource("10_gjajk")]
-visible = false
