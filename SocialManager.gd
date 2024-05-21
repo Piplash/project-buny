@@ -116,7 +116,7 @@ func affectionData() -> Array:
 
 #Aumenta el afecto de acuerdo a distintas acciones
 func modifyAffection(modifyAffectionBy: float) -> void:
-	if increaseAffection == true:
+	if increaseAffection == true and !displayLevelUp:
 		affection = affection + modifyAffectionBy
 		affection = clamp(affection, 0.0, 100.0)
 

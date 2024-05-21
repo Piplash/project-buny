@@ -82,7 +82,7 @@ func _ready():
 func _process(delta):
 	animationOn = inputHandlerScript.getAnimationOn()
 	patting = inputHandlerScript.getPatting()
-	if cursorOverHeadArea and !animationOn:
+	if (cursorOverHeadArea or cursorOverLeftCheek or cursorOverRightCheek or cursorOverLeftEar or cursorOverRightEar) and !animationOn:
 		Input.set_custom_mouse_cursor(handPointer)
 
 func mouseEnteredHead():  # Define the function
@@ -94,9 +94,9 @@ func mouseLeftHead():
 	#print("Mouse exited head area")
 	#Input.set_custom_mouse_cursor(arrowPointer)
 	changeCursor('Left')
-
-	if !animationOn and patting:
-		inputHandlerScript.defaultAnimation(0, true)
+	#if !animationOn and patting:
+	#	inputHandlerScript.defaultAnimation(0, true)
+	resetAnim()
 	cursorOverHeadArea = false
 
 func mouseEnteredChest():
@@ -122,24 +122,31 @@ func mouseLeftCarrot():
 	cursorOverCarrotArea = false
 
 func mouseEnteredLeftCheek():
+	#print("Mouse Entered Left Cheek")
 	changeCursor('Entered')
 	cursorOverLeftCheek = true
+	cursorOverHeadArea  = false
 func mouseLeftLeftCheek():
+	#print("Mouse Left Left Cheek")
 	changeCursor('Left')
 	cursorOverLeftCheek = false
+	cursorOverHeadArea  = true
 
 func mouseEnteredRightCheek():
 	changeCursor('Entered')
 	cursorOverRightCheek = true
+	cursorOverHeadArea   = false
 func mouseLeftRightCheek():
 	changeCursor('Left')
 	cursorOverRightCheek = false
+	cursorOverHeadArea   = true
 
 func mouseEnteredLeftEar():
 	changeCursor('Entered')
 	cursorOverLeftEar = true
 func mouseLeftLeftEar():
 	changeCursor('Left')
+	resetAnim()
 	cursorOverLeftEar = false
 
 func mouseEnteredRightEar():
@@ -147,6 +154,7 @@ func mouseEnteredRightEar():
 	cursorOverRightEar = true
 func mouseLeftRightEar():
 	changeCursor('Left')
+	resetAnim()
 	cursorOverRightEar = false
 
 func mouseEnteredFeeding():
@@ -168,6 +176,10 @@ func changeCursor(event):
 		Input.set_custom_mouse_cursor(handPointer)
 	elif event == 'Left':
 		Input.set_custom_mouse_cursor(arrowPointer)
+
+func resetAnim():
+	if !animationOn and patting:
+		inputHandlerScript.defaultAnimation(0, true)
 
 #Getters
 func getHeadArea() -> bool:

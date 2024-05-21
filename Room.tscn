@@ -17,8 +17,8 @@ viewport_path = NodePath("Character/Buny/GDCubismUserModel")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rjy1"]
 size = Vector2(8720, 5920)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ufi6"]
-size = Vector2(64.5487, 27.25)
+[sub_resource type="CircleShape2D" id="CircleShape2D_uogw3"]
+radius = 39.8038
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uok2"]
 size = Vector2(411.5, 196.25)
@@ -27,9 +27,10 @@ size = Vector2(411.5, 196.25)
 size = Vector2(1330, 1286.25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sb01v"]
-radius = 7.03122
+radius = 15.7525
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gd7r2"]
+radius = 21.1011
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lnb0"]
 size = Vector2(990, 990)
@@ -121,17 +122,17 @@ ParamEyeBallX = 0.0
 ParamEyeBallY = 0.0
 Eyes_mov = 0.260001
 ParamEyeLOpen = 1.0
-ParamMouthForm = 0.0
-ParamMouthOpenY = 0.0
+ParamMouthForm = 0.0259588
+ParamMouthOpenY = 5.69147e-14
 pupilas = 0.0
 HeadLilt = 0.5
-bite_head_par = 0.0
+bite_head_par = 0.377714
 upset = 0.0
 sad = 0.6
 cry = 1.0
 happy = 0.0
 super_happy = 0.0
-loopcry1 = 0.835318
+loopcry1 = 0.519177
 loopcry2 = 1.0
 hand123 = 0.0
 hand = 0.5
@@ -140,24 +141,35 @@ heartsmov2 = 1.0
 hearts_opacity = 0.0
 Hearts = 0.0
 ArmUpset = 0.0
-ParamBreath = 0.233761
-torso_mov = 0.525105
+hand_pet_facel1 = 0.0
+Leye = 0.0
+hand2X = 0.0
+hand2Y = 1.0
+handfaceop = 0.0
+earRtouch = 0.5
+earRtouchop = 0.0
+earLtouch = 0.5
+earLtouchop = 0.0
+facetouchL = 0.5
+facetouchopL = 0.0
+ParamBreath = 0.37694
+torso_mov = 0.55713
 body2 = 0.0
 main_arms = 0.0
-ParamBodyAngleX = -1.2021
+ParamBodyAngleX = -1.0476
 armRotationX = 0.5
 amrsupset = 0.0
 ParamAngleZ = 0.0
 Carrot_opacity = 0.0
-Carrot_bites = 0.0
-armcarrotL = 0.0
-CarrotY = 0.0
+Carrot_bites = 0.7
+armcarrotL = 0.400038
+CarrotY = 0.6
 happy_body = 0.5
 notes1 = 0.5
 notes_opacity = 0.0
 ParamHairFront = 0.0
-ParamHairSide = -0.263107
-ParamHairBack = -0.17225
+ParamHairSide = -0.227132
+ParamHairBack = -0.154994
 ParamBrowLX = 0.0
 ParamBrowRX = 0.0
 ParamEyeLSmile = 0.0
@@ -179,6 +191,7 @@ Part6 = 1.0
 mouth = 1.0
 Part = 1.0
 Folder1 = 1.0
+Part10 = 1.0
 Folder2 = 1.0
 Folder4 = 1.0
 mouthclose = 1.0
@@ -202,7 +215,7 @@ render_target_update_mode = 4
 position = Vector2(2180, 2310)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/ModelArea"]
-position = Vector2(360, -770)
+position = Vector2(310, -760)
 shape = SubResource("RectangleShape2D_1rjy1")
 
 [node name="HeadArea" type="Area2D" parent="Character/Buny"]
@@ -210,10 +223,14 @@ position = Vector2(1940, 1320)
 scale = Vector2(20, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/HeadArea"]
-position = Vector2(-3, -0.5)
+position = Vector2(1.1871, 13.139)
 rotation = -0.367201
 scale = Vector2(0.894355, 0.912229)
-shape = SubResource("RectangleShape2D_7ufi6")
+shape = SubResource("CircleShape2D_uogw3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Character/Buny/HeadArea"]
+visible = false
+polygon = PackedVector2Array(-29.5, 6.5, -27.5, -4.5, -19.5, -12, -0.5, -19, 12.5, -18.5, 29.5, -6, 32, 5, 31.5, 19.5, 28, 21.5, 10.5, 16, -3, 25, -15, 21.5, -18, 25.5, -25, 30)
 
 [node name="ChestArea" type="Area2D" parent="Character/Buny"]
 position = Vector2(2170, 2520)
@@ -221,6 +238,7 @@ position = Vector2(2170, 2520)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/ChestArea"]
 position = Vector2(4.25, 10)
 shape = SubResource("RectangleShape2D_3uok2")
+debug_color = Color(0.982158, 0, 0.364696, 0.42)
 
 [node name="FeedingHeadArea" type="Area2D" parent="Character/Buny"]
 position = Vector2(1950, 1610)
@@ -228,16 +246,17 @@ position = Vector2(1950, 1610)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/FeedingHeadArea"]
 position = Vector2(15, -23.125)
 shape = SubResource("RectangleShape2D_d70df")
+debug_color = Color(0.511476, 0.57754, 1.92523e-07, 0.42)
 
 [node name="LeftCheek" type="Area2D" parent="Character/Buny"]
-position = Vector2(1730, 2010)
+position = Vector2(1750, 2000)
 scale = Vector2(12.8, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/LeftCheek"]
 shape = SubResource("CircleShape2D_sb01v")
 
 [node name="RightCheek" type="Area2D" parent="Character/Buny"]
-position = Vector2(2150, 1910)
+position = Vector2(2200, 1920)
 scale = Vector2(0.95, 0.7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Buny/RightCheek"]
@@ -246,19 +265,17 @@ shape = SubResource("CircleShape2D_gd7r2")
 
 [node name="LeftEar" type="Area2D" parent="Character/Buny"]
 position = Vector2(960, 1180)
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Character/Buny/LeftEar"]
 position = Vector2(-930, -1000)
-polygon = PackedVector2Array(420, 1100, 670, 910, 1130, 640, 1600, 900, 1430, 1090, 1100, 960, 810, 1290, 440, 1360)
+polygon = PackedVector2Array(360, 1100, 690, 820, 1120, 640, 1360, 710, 1220, 1090, 1060, 1080, 840, 1340, 420, 1370)
 
 [node name="RightEar" type="Area2D" parent="Character/Buny"]
 position = Vector2(2020, 610)
-scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Character/Buny/RightEar"]
 scale = Vector2(50, 50)
-polygon = PackedVector2Array(-1.60001, 6.8, -3.80001, 1.4, -7.2, -5, -10, -9, -6.80001, -12.8, -3.40001, -9.8, 0.199997, -6, 2.59999, -1.6, 3.39999, 7.8)
+polygon = PackedVector2Array(-4.2, 3.6, -5.8, 1.2, -8.39999, -3.8, -11.8, -9, -10.4, -12, -6.6, -13, -2.2, -10.6, 1.40001, -7, 4.2, -2.2, 4.60001, 2.6)
 
 [node name="UpsetSound" type="AudioStreamPlayer" parent="Character/Buny"]
 stream = ExtResource("5_pnfwi")
@@ -277,6 +294,7 @@ texture = ExtResource("6_kjark")
 position = Vector2(24.9998, 24.9995)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_0lnb0")
+debug_color = Color(0.509804, 0.576471, 0, 0.419608)
 
 [node name="Scripts" type="Node2D" parent="."]
 

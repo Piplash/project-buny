@@ -4,7 +4,6 @@ extends Node2D
 
 var socialManagerScript: Node
 
-
 func _ready() -> void:
 	anim.play("fade_out")
 	socialManagerScript = get_node("/root/SocialManager")

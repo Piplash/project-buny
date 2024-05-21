@@ -127,6 +127,61 @@
 			"Name": "AmrUpset"
 		},
 		{
+			"Id": "hand_pet_facel1",
+			"GroupId": "ParamGroup2",
+			"Name": "hand_pet_facel1"
+		},
+		{
+			"Id": "Leye",
+			"GroupId": "ParamGroup2",
+			"Name": "Leye"
+		},
+		{
+			"Id": "hand2X",
+			"GroupId": "ParamGroup2",
+			"Name": "hand2X"
+		},
+		{
+			"Id": "hand2Y",
+			"GroupId": "ParamGroup2",
+			"Name": "hand2Y"
+		},
+		{
+			"Id": "handfaceop",
+			"GroupId": "ParamGroup2",
+			"Name": "hand_faceop"
+		},
+		{
+			"Id": "earRtouch",
+			"GroupId": "ParamGroup2",
+			"Name": "earRtouch"
+		},
+		{
+			"Id": "earRtouchop",
+			"GroupId": "ParamGroup2",
+			"Name": "EarRtouchop"
+		},
+		{
+			"Id": "earLtouch",
+			"GroupId": "ParamGroup2",
+			"Name": "earLtouch"
+		},
+		{
+			"Id": "earLtouchop",
+			"GroupId": "ParamGroup2",
+			"Name": "earLtouchop"
+		},
+		{
+			"Id": "facetouchL",
+			"GroupId": "ParamGroup2",
+			"Name": "facetouchL"
+		},
+		{
+			"Id": "facetouchopL",
+			"GroupId": "ParamGroup2",
+			"Name": "facetouchOPL"
+		},
+		{
 			"Id": "ParamBreath",
 			"GroupId": "ParamGroup3",
 			"Name": "Breath"
@@ -299,6 +354,11 @@
 			"Name": "expressions"
 		},
 		{
+			"Id": "ParamGroup6",
+			"GroupId": "",
+			"Name": "Folder 1"
+		},
+		{
 			"Id": "ParamGroup3",
 			"GroupId": "",
 			"Name": "body"
@@ -346,6 +406,10 @@
 		{
 			"Id": "Folder1",
 			"Name": "Folder1"
+		},
+		{
+			"Id": "Part10",
+			"Name": "Hand2"
 		},
 		{
 			"Id": "Folder2",
@@ -403,11 +467,5 @@
 			"Id": "brazos",
 			"Name": "brazos(maincompleto)"
 		}
-	],
-	"CombinedParameters": [
-		[
-			"hearts_mov",
-			"heartsmov2"
-		]
 	]
 }

@@ -1,0 +1,30 @@
+{
+	"Type": "Live2D Expression",
+	"Parameters": [
+		{
+			"Id": "ParamEyeLOpen",
+			"Value": -1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "sad",
+			"Value": 0.144,
+			"Blend": "Add"
+		},
+		{
+			"Id": "Leye",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "handfaceop",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamAngleY",
+			"Value": 28.705,
+			"Blend": "Add"
+		}
+	]
+}

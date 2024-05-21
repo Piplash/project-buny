@@ -47,6 +47,22 @@
 			{
 				"Name": "hearts",
 				"File": "expressions/hearts.exp3.json"
+			},
+			{
+				"Name": "eartouchR",
+				"File": "expressions/eartouchR.exp3.json"
+			},
+			{
+				"Name": "eartouchL",
+				"File": "expressions/eartouchL.exp3.json"
+			},
+			{
+				"Name": "facetouchL",
+				"File": "expressions/facetouchL.exp3.json"
+			},
+			{
+				"Name": "facetouchR",
+				"File": "expressions/facetouchR.exp3.json"
 			}
 		],
 		"Motions": {
@@ -73,6 +89,32 @@
 			"Superhappy": [
 				{
 					"File": "motions/superhappyidle.motion3.json"
+				}
+			],
+			"FacetouchR": [
+				{
+					"File": "motions/facetouchR.motion3.json",
+					"FadeInTime": 0,
+					"FadeOutTime": 0
+				}
+			],
+			"FacetouchL": [
+				{
+					"File": "motions/facetouchL.motion3.json"
+				}
+			],
+			"Eartouchr": [
+				{
+					"File": "motions/eartouchR.motion3.json",
+					"FadeInTime": 0,
+					"FadeOutTime": 0
+				}
+			],
+			"Eartouchl": [
+				{
+					"File": "motions/eartouchL.motion3.json",
+					"FadeInTime": 0,
+					"FadeOutTime": 0
 				}
 			],
 			"Upset": [
